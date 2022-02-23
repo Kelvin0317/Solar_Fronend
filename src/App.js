@@ -3,7 +3,7 @@ import { Button, message } from 'antd';
 import * as XLSX from 'xlsx';
 import { DataGrid } from '@mui/x-data-grid';
 import { CSVLink } from 'react-csv';
-import { Chart as ChartJS } from 'chart.js/auto'npm install chart.js
+import { Chart as ChartJS } from 'chart.js/auto'
 import { Chart, Bar } from 'react-chartjs-2'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
