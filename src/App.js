@@ -3,11 +3,10 @@ import { Button, message } from 'antd';
 import * as XLSX from 'xlsx';
 import { DataGrid } from '@mui/x-data-grid';
 import { CSVLink } from 'react-csv';
-import { Chart as ChartJS } from 'chart.js/auto'
-import { Chart, Bar } from 'react-chartjs-2'
+import Chart from 'chart.js/auto';
+import { Bar } from 'react-chartjs-2';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
-import Popup from 'react-popup';
 
 const columns = [
   { field: 'id', headerName: 'No', width: 40 },
@@ -198,7 +197,6 @@ onImportExcel = file => {
                     text: "ROI Per Days"
                 }
             },
-              scales: {x: { title: { display: true, text: 'Day' }}},
               scales: {y: { title: { display: true, text: 'Roi' }}}
             } 
             }
@@ -221,7 +219,6 @@ onImportExcel = file => {
                     text: "Saving Per Day"
                 }
             },
-              scales: {x: { title: { display: true, text: 'Day' }}},
               scales: {y: { title: { display: true, text: 'Saving (RM)' }}}
             } 
             }
