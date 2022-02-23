@@ -45,6 +45,7 @@ class App extends Component {
         InvertorPrice: [],
         Day:[],
         Roi:[],
+        MDReduction:[],
         Each_Day_Saving:[]    }
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -95,22 +96,26 @@ onImportExcel = file => {
   async postData() {
     const battery = this.state.BatteryPrice;
     const invertor = this.state.invertor;
+    const md = this.state.MDReduction;
     const data = this.state.Data;
     console.log(battery)
-    if(data == 0){
+    console.log(md)
+    if(data === 0){
       alert("Please upload your data");
-    }else if(invertor == 0){
+    }else if(invertor === 0){
       alert("Invertor Price can't be empty");
-    }else if(battery == 0){
+    }else if(battery === 0){
       alert("Battery Price can't be empty");
+    }else if(md === 0){
+      alert("MD Deruction can't be empty");
     }
-    if(battery != 0 && invertor != 0 && data != 0){
+    if(battery !== 0 && invertor !== 0 && data !== 0 && md !== 0){
       try {
-        let result = await fetch('https://dry-cove-14847.herokuapp.com/', {
+        let result = await fetch('http://127.0.0.1:5000/', {
         method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify([this.state.Data,this.state.BatteryPrice,this.state.InvertorPrice]),
+            body: JSON.stringify([this.state.Data,this.state.BatteryPrice,this.state.InvertorPrice,this.state.MDReduction]),
       }).then(res =>{
         return res.json()
       }).then(res => {
@@ -163,7 +168,6 @@ onImportExcel = file => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Invertor Price</Form.Label>
           <Form.Control 
-            type="number" 
             placeholder="Enter Invertor Price" 
             name="InvertorPrice"
             type="number"
@@ -172,9 +176,16 @@ onImportExcel = file => {
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Battery Price</Form.Label>
           <Form.Control 
-            type="number" 
             placeholder="Enter Battery Price" 
             name="BatteryPrice"
+            type="number"
+            onChange={this.handleInputChange}/>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>MD Reduction</Form.Label>
+          <Form.Control 
+            placeholder="Enter MD Reduction" 
+            name="MDReduction"
             type="number"
             onChange={this.handleInputChange}/>
         </Form.Group>
