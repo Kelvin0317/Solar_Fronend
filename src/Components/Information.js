@@ -55,7 +55,7 @@ class WhichData extends Component {
             input_date: date,
         };
 
-        fetch('http://127.0.0.1:5000/Information', {
+        fetch('http://192.168.211.142:5000/test', {
         method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
@@ -88,7 +88,7 @@ class WhichData extends Component {
     });
 
     try {
-      let result = await fetch('http://127.0.0.1:5000/Information', {
+      let result = await fetch('http://192.168.211.142:5000/test', {
         method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
@@ -121,7 +121,7 @@ class WhichData extends Component {
     });
     
     try {
-      let result = await fetch('http://127.0.0.1:5000/Information', {
+      let result = await fetch('http://192.168.211.142:5000/Information', {
         method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },

@@ -111,11 +111,12 @@ onImportExcel = file => {
     }
     if(battery !== 0 && invertor !== 0 && data !== 0 && md !== 0){
       try {
-        let result = await fetch('http://127.0.0.1:5000/', {
+        let result = await fetch('http://192.168.211.142:5000/', {
         method: 'POST',
-            credentials: 'include',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify([this.state.Data,this.state.BatteryPrice,this.state.InvertorPrice,this.state.MDReduction]),
+        mode: 'cors',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify([this.state.Data,this.state.BatteryPrice,this.state.InvertorPrice,this.state.MDReduction]),
       }).then(res =>{
         return res.json()
       }).then(res => {
